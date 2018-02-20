@@ -13,6 +13,7 @@ name = "pypi"
 
 flask = "*"
 marshmallow = "*"
+"enum34" = "*"
 
 
 [requires]
