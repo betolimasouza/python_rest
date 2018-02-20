@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 
 transactions = [
-  Income('Salary', 5000),
-  Income('Dividends', 200),
-  Expense('pizza', 50),
-  Expense('Rock Concert', 100)
+  Income(1, 'Salary', 5000),
+  Income(2, 'Dividends', 200),
+  Expense(1, 'pizza', 50),
+  Expense(2, 'Rock Concert', 100)
 ]
 
 
@@ -30,6 +30,20 @@ def add_income():
   transactions.append(income.data) #Insere dados
   return "", 204 # Codigo de Status HTTP 204 - The server has successfully fulfilled the request
 
+
+@app.route('/incomes/<int:id>', methods=['DELETE'])
+def delete_income(id):
+  try:
+    #TODO DELETE
+    schema = IncomeSchema(many=True)
+    incomes = schema.dump( 
+    filter(lambda t: t.type == TransactionType.INCOME, transactions)
+    )
+    
+  except ValueError:
+    pass
+  
+  return "", 204
 
 
 @app.route('/expenses')
