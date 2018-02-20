@@ -1,6 +1,6 @@
 from marshmallow import post_load
 
-from .transaction import Transaction, TransactionSchema #Income é um tipo de Transaction
+from .transaction import Transaction, TransactionSchema #Income e um tipo de Transaction
 from .transaction_type import TransactionType
 
 

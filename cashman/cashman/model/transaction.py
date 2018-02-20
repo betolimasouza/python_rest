@@ -2,7 +2,7 @@ import datetime as dt
 
 from marshmallow import Schema, fields
 
-#Superclasse para lançamentos de entrada e saída.
+#Superclasse para lancamentos de entrada e saida.
 class Transaction(object):
   def __init__(self, description, amount, type):
     self.description = description
@@ -10,11 +10,11 @@ class Transaction(object):
     self.created_at = dt.datetime.now()
     self.type = type
 
-#__repr__ retorna uma string legivel do objeto - util para serialização e debug
+#__repr__ retorna uma string legivel do objeto - util para serializacao e debug
   def __repr__(self):
     return '<Transaction(name={self.description!r})>'.format(self=self)
 
-#Schema para facilitar a serialização para json - 'Schema' é definido no pacote Marshmallow
+#Schema para facilitar a serializacao para json - 'Schema' e definido no pacote Marshmallow
 class TransactionSchema(Schema):
   description = fields.Str()
   amount = fields.Number()
